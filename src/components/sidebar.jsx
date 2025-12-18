@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Pencil, Trash2 } from "lucide-react";
+
 
 function Sidebar({
   chats,
@@ -19,9 +21,7 @@ function Sidebar({
 
   function saveEdit(chatId) {
     const title = tempTitle.trim();
-    if (title) {
-      onRename(chatId, title);
-    }
+    if (title) onRename(chatId, title);
     setEditingId(null);
   }
 
@@ -32,17 +32,13 @@ function Sidebar({
 
   return (
     <aside className="sidebar">
-      <button className="new-chat" onClick={onNewChat}>
-        + New Chat
-      </button>
+      <button className="new-chat" onClick={onNewChat}>+ New Chat</button>
 
       <div className="chat-list">
         {Object.values(chats).map(chat => (
           <div
             key={chat.id}
-            className={`chat-item ${
-              chat.id === activeId ? "active" : ""
-            }`}
+            className={`chat-item ${chat.id === activeId ? "active" : ""}`}
             onClick={() => onSelect(chat.id)}
           >
             {editingId === chat.id ? (
@@ -60,30 +56,11 @@ function Sidebar({
               />
             ) : (
               <>
-                {/* ✅ FIXED: onClick is a PROP, not text */}
-                <span
-                  className="chat-title"
-                  onClick={() => onSelect(chat.id)}
-                >
-                  {chat.title}
-                </span>
+                <span className="chat-title">{chat.title}</span>
 
-                <div
-                  className="chat-actions"
-                  onClick={e => e.stopPropagation()}
-                >
-                  <button
-                    title="Rename"
-                    onClick={e => startEdit(chat, e)}
-                  >
-                    ✏️
-                  </button>
-                  <button
-                    title="Delete"
-                    onClick={() => onDelete(chat.id)}
-                  >
-                    🗑️
-                  </button>
+                <div className="chat-actions" onClick={e => e.stopPropagation()}>
+                  <button className="icon-btn" onClick={e => startEdit(chat, e)}> <Pencil size={16} /> </button>
+                  <button className="icon-btn" onClick={() => onDelete(chat.id)}> <Trash2 size={16} /> </button>
                 </div>
               </>
             )}

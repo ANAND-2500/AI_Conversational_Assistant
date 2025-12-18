@@ -312,3 +312,135 @@ textarea:disabled {
   border-radius: 4px;
   outline: none;
 }
+.app {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  background: #202123;
+  border-right: 1px solid #2f3036;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 12px;
+  overflow: hidden;
+}
+
+/* NEW CHAT BUTTON */
+.new-chat {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  background: #10a37f;
+  color: white;
+  cursor: pointer;
+  margin: 20px auto;
+
+}
+.new-chat:hover {
+  background: #0d8a6c;
+}
+
+/* CHAT LIST */
+.chat-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-top: 10px;
+  padding-right: 4px;
+}
+
+.chat-list::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-list::-webkit-scrollbar-thumb {
+  background: #3b3c42;
+  border-radius: 4px;
+}
+
+/* CHAT ITEM */
+.chat-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  margin-bottom: 4px;
+
+  border-radius: 6px;
+  cursor: pointer;
+
+  transition: background 0.15s ease;
+}
+.chat-item:hover {
+  background: #2a2b32;
+}
+.chat-item.active {
+  background: #343541;
+}
+
+/* CHAT TITLE */
+.chat-title {
+  flex: 1;
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* ACTION BUTTONS (Rename/Delete) */
+.chat-actions {
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.chat-item:hover .chat-actions,
+.chat-item.active .chat-actions {
+  opacity: 1;
+}
+
+.chat-actions button {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 2px 4px;
+  font-size: 14px;
+}
+.chat-actions button:hover {
+  color: white;
+}
+
+/* RENAME INPUT */
+.rename-input {
+  width: 100%;
+  background: #2a2b32;
+  color: white;
+  border: none;
+
+  padding: 6px 8px;
+  font-size: 14px;
+
+  border-radius: 4px;
+  outline: none;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  color: #8e8ea0;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+.icon-btn:hover {
+  color: white;
+}
